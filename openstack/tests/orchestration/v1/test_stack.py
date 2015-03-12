@@ -29,6 +29,7 @@ EXAMPLE = {
     'stack_status': '11',
     'stack_status_reason': '12',
     'template_description': '13',
+    'template_url': 'http://www.example.com/wordpress.yaml',
     'timeout_mins': '14',
     'updated_time': '15',
 }
@@ -42,7 +43,7 @@ class TestStack(testtools.TestCase):
         self.assertEqual('stacks', sot.resources_key)
         self.assertEqual('/stacks', sot.base_path)
         self.assertEqual('orchestration', sot.service.service_type)
-        self.assertFalse(sot.allow_create)
+        self.assertTrue(sot.allow_create)
         self.assertTrue(sot.allow_retrieve)
         self.assertFalse(sot.allow_update)
         self.assertTrue(sot.allow_delete)
@@ -66,5 +67,7 @@ class TestStack(testtools.TestCase):
                          sot.stack_status_reason)
         self.assertEqual(EXAMPLE['template_description'],
                          sot.template_description)
+        self.assertEqual(EXAMPLE['template_url'],
+                         sot.template_url)
         self.assertEqual(EXAMPLE['timeout_mins'], sot.timeout_mins)
         self.assertEqual(EXAMPLE['updated_time'], sot.updated_time)

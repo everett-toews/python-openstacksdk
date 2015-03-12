@@ -22,6 +22,7 @@ class Stack(resource.Resource):
 
     # capabilities
     # NOTE(thowe): Special handling for other operations
+    allow_create = True
     allow_list = True
     allow_retrieve = True
     allow_delete = True
@@ -39,5 +40,6 @@ class Stack(resource.Resource):
     stack_status = resource.prop('stack_status')
     stack_status_reason = resource.prop('stack_status_reason')
     template_description = resource.prop('template_description')
+    template_url = resource.prop('template_url')
     timeout_mins = resource.prop('timeout_mins')
     updated_time = resource.prop('updated_time')
